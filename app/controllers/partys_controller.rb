@@ -5,7 +5,7 @@ class PartysController < ApplicationController
     if party.save
       render json: party, status: 201
     else
-      render json: errors, status: 400
+      render json: party.errors, status: 400
     end
   end
 end
