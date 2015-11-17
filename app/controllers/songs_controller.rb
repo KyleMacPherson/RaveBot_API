@@ -14,7 +14,7 @@ class SongsController < ApplicationController
     songs = Song.all
     party_songs = []
     songs.each do |song|
-      party_songs << song if song.party_name == json['party_name']
+      party_songs << song if song.party_name == params[:party_name]
     end
     render json: party_songs.sample
   end
