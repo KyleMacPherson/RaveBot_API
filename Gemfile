@@ -5,7 +5,7 @@ gem 'rails', '4.2.4'
 
 gem 'rails-api'
 gem 'rack-cors', :require => 'rack/cors'
-gem 'spring', :group => :development
+# gem 'spring', :group => :development
 
 
 gem 'pg'
