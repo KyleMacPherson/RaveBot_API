@@ -1,0 +1,2 @@
+class PartyController < ApplicationController
+end
