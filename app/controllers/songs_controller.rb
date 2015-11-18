@@ -6,8 +6,11 @@ class SongsController < ApplicationController
     partys = Party.all
     party_names = partys.map {|party| party.name}
     if party_names.include?(json["party_name"])
-      song.save
-      render json: song, status: 201
+      if song.save
+        render json: song, status: 201
+      else
+        render json: song.errors, status: 400
+      end
     else
       render json: {error: "incorrect party name"}, status: 400
     end

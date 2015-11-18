@@ -31,7 +31,20 @@ describe "Songs" do
           message: "test",
           url: "test.com"
         }.to_json, {"CONTENT_TYPE" => 'application/json'}
-        expect(last_response.status).to eq 201
+        expect(last_response.status).to eq 400
+      end
+
+      it 'does not add a song to party unless url field is completed' do
+        post '/partys', {
+          name: "test_party"
+        }.to_json, {"CONTENT_TYPE" => 'application/json'}
+        post '/songs', {
+          party_name: "test_party",
+          name: "test boy",
+          message: "test",
+          url: ""
+        }.to_json, {"CONTENT_TYPE" => 'application/json'}
+        expect(last_response.status).to eq 400
       end
 
     end
