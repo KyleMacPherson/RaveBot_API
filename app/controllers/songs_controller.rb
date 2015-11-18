@@ -3,19 +3,22 @@ class SongsController < ApplicationController
   def create
     json = JSON.parse(request.body.read)
     song = Song.new(json)
-    if song.save
+    partys = Party.all
+    party_names = partys.map {|party| party.name}
+    if party_names.include?(json["party_name"])
+      song.save
       render json: song, status: 201
     else
-      render json: song.errors, status: 400
+      render json: {error: "incorrect party name"}, status: 400
     end
+
   end
 
   def random
     songs = Song.all
     party_songs = []
-    songs.each do |song|
-      party_songs << song if song.party_name == params[:party_name]
-    end
+    songs.each { |song| party_songs << song if song.party_name == params[:party_name]}
     render json: party_songs.sample
   end
+
 end

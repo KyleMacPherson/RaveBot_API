@@ -10,6 +10,14 @@ gem 'rack-cors', :require => 'rack/cors'
 
 gem 'pg'
 
+group :test do
+  gem 'rack-test'
+  gem 'rspec-rails'
+  gem 'shoulda'
+  gem 'factory_girl_rails'
+  gem 'rspec-collection_matchers'
+  gem 'pry'
+end
 
 
 # To use ActiveModel has_secure_password
