@@ -3,5 +3,4 @@ class RemovePartyIdFromSongs < ActiveRecord::Migration
     remove_column :songs, :party_id, :string
   end
 
-  def 
 end
