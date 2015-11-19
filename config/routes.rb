@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   post 'partys' => 'partys#create'
+  get 'partys/:name' => 'partys#show'
   post 'songs' => 'songs#create'
   get 'songs/random/:party_name' => 'songs#random'
   # The priority is based upon order of creation: first created -> highest priority.
