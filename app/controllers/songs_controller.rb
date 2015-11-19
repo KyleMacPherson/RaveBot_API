@@ -22,10 +22,10 @@ class SongsController < ApplicationController
     party_songs = []
     songs.each { |song| party_songs << song if song.party_name == params[:party_name]}
     if party_songs.empty?
-      redner json: {error: "RAVEBOT HAS NO SONGS"}
+      render json: {error: "RAVEBOT HAS NO SONGS"}, status: 400
     else
-    render json: party_songs.sample
-  end
+      render json: party_songs.sample
+    end
   end
 
 end

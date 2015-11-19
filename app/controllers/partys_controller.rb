@@ -15,7 +15,7 @@ class PartysController < ApplicationController
     if party
       render json: party, status: 200
     else
-      render json: {error: "RAVEBOT HAS NOT BEEN INVITED TO THIS PARTY"}
+      render json: {error: "RAVEBOT HAS NOT BEEN INVITED TO THIS PARTY"}, status: 400
     end
   end
 
