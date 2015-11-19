@@ -13,7 +13,7 @@ class PartysController < ApplicationController
   def show
     party = Party.find_by_name(params[:name])
     if party
-      render json: party
+      render json: party, status: 200
     else
       render json: {error: "RAVEBOT HAS NOT BEEN INVITED TO THIS PARTY"}
     end
