@@ -12,7 +12,7 @@ class SongsController < ApplicationController
         render json: song.errors, status: 400
       end
     else
-      render json: {error: "incorrect party name"}, status: 400
+      render json: {error: "RAVEBOT HAS NOT BEEN INVITED TO THIS PARTY"}, status: 400
     end
 
   end
